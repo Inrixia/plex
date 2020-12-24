@@ -10,7 +10,6 @@ import { MediaContainer } from './util';
 abstract class Video extends Playable {
   /** API URL (/library/metadata/<ratingkey>) */
   key!: string;
-  ing;
   /** Datetime this item was added to the library. */
   addedAt!: Date;
   /** Datetime item was last accessed. */

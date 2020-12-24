@@ -409,7 +409,7 @@ export class PlexServer {
   }
 
   private _headers(): Record<string, string> {
-    const headers = {
+    const headers: Record<string, string> = {
       ...BASE_HEADERS,
       'Content-type': 'application/json',
     };

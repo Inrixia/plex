@@ -5,7 +5,7 @@ const OPERATORS = {
   exact: (v: string | number, q: string | number) => v === q,
   iexact: (v: string, q: string) => v.toLowerCase() === q.toLowerCase(),
   contains: (v: string, q: string) => q.includes(v),
-  icontains: (v: string, q) => q.toLowerCase().includes(v.toLowerCase()),
+  icontains: (v: string, q: string) => q.toLowerCase().includes(v.toLowerCase()),
   ne: (v: string, q: string) => v !== q,
   in: (v: string, q: any) => v in q,
   gt: (v: number, q: number) => v > q,
@@ -96,7 +96,7 @@ export function findItems(
   return items;
 }
 
-function checkAttrs<T>(elem: T, obj: Record<string, string | number> = {}): boolean {
+function checkAttrs<T extends { [key: string]: unknown }>(elem: T, obj: Record<string, string | number> = {}): boolean {
   const attrsFound: Record<string, boolean> = {};
   for (const [attr, query] of Object.entries(obj)) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
